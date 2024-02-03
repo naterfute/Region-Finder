@@ -1,16 +1,7 @@
 import pyautogui
 import keyboard
 from time import sleep
-import os
 
-
-os.environ['XAUTHORITY'] = '/home/kaleb/.Xauthority'
-
-os.system('xauth generate :0 . trusted')
-
-    
-    
-    
 class regionfinder:
   x1 = None
   x2 = None
