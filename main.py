@@ -21,13 +21,17 @@ class regionfinder:
 
   
   def screenshot(self):
-    mousepos = [self.x1, self.y1, self.x2, self.y2]
-    pyautogui.screenshot('test.png', region=mousepos)#type: ignore
+    self.mousepos = [self.x1, self.y1, self.x2, self.y2]
+    pyautogui.screenshot('test.png', region=self.mousepos)#type: ignore
 
 
 rf = regionfinder()
 
 while True: 
-  if keyboard.is_pressed('i'):
+  if keyboard.is_pressed('shift'):
     rf.pos()
-    sleep(2)
+    sleep(1)
+  if not rf.x2 == None:
+    rf.screenshot()
+    print(rf.mousepos)
+    exit()
