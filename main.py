@@ -30,8 +30,13 @@ rf = regionfinder()
 while True: 
   if keyboard.is_pressed('shift'):
     rf.pos()
-    sleep(1)
+    sleep(1) #? Here so that it doesn't accidentally take both regions at the same time
   if not rf.x2 == None:
-    rf.screenshot()
-    print(rf.mousepos)
-    exit()
+    try:
+      rf.screenshot()
+      print(rf.mousepos)
+      print('Take a look at your image at "test.png"')
+      exit()
+    except ValueError as e:
+      print("Coordinate 'right' is Les than 'left', try again but this time press the top left of your image first!")
+      exit()
